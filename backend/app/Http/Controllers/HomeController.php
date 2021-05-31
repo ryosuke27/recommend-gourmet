@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $embed_html = '<iframe src="'.url('/image/test1.jpg/?embed').'" style="width:100%;height:100%; border:none;"></iframe>';
+
+        return view('index', [
+            "embed_html" => $embed_html
+        ]);
     }
 }
