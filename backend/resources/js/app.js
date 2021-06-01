@@ -2,6 +2,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
 import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
+import FavoriteComponent from "./components/FavoriteComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -40,6 +41,11 @@ const router = new VueRouter({
             path: '/dish',
             name: 'dish',
             component: DishComponent
+        },
+        {
+            path: '/favorite',
+            name: 'favorite',
+            component: FavoriteComponent
         },
     ]
 });
