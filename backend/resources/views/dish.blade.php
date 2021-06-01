@@ -10,6 +10,7 @@
             </svg>
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
+                <a href=""><button type="button" class="btn btn-success">Go</button></a>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
         </div>
