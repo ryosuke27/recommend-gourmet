@@ -1,3 +1,8 @@
+import HeaderComponent from "./components/HeaderComponent";
+import VueRouter from 'vue-router';
+import HomeComponent from "./components/HomeComponent";
+import DishComponent from "./components/DishComponent";
+import FavoriteComponent from "./components/FavoriteComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17,10 +22,33 @@ window.Vue = require('vue').default;
  */
 
 // const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// files.keys().map(key => Vue.component(key.split('/').pop().Fsplit('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('header-component', HeaderComponent);
 
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/home',
+            name: 'home',
+            component: HomeComponent
+        },
+        {
+            path: '/dish',
+            name: 'dish',
+            component: DishComponent
+        },
+        {
+            path: '/favorite',
+            name: 'favorite',
+            component: FavoriteComponent
+        },
+    ]
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,4 +57,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });
