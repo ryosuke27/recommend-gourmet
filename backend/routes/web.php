@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/{any}', function() {
+  return view('app');
+})->where('any', '.*');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dish', [App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
 Route::get('/favorite', [App\Http\Controllers\FavoriteController::class, 'show'])->name('favorite.show');
