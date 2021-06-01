@@ -18,3 +18,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dish', [App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
+Route::get('/favorite', [App\Http\Controllers\DishController::class, 'show'])->name('favorite.show');
