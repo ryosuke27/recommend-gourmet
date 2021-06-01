@@ -1,7 +1,6 @@
 import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
 import HomeComponent from "./components/HomeComponent";
-import SearchComponent from "./components/SearchComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -23,9 +22,7 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().Fsplit('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('header-component', HeaderComponent);
-Vue.component('search-component', SearchComponent);
 
 
 Vue.use(VueRouter);
