@@ -3,7 +3,6 @@
         <div class="row justify-content-center">
             <h2>一瞬で美味しい店を見つけよう</h2>
             <div class="card-group">
-                <a href="">
                     <div class="card">
                         <svg
                             class="bd-placeholder-img card-img-top"
@@ -18,11 +17,12 @@
                             <title>Placeholder</title>
                             <rect fill="#868e96" width="100%" height="100%" />
                             <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
+                            <router-link v-bind:to="{ name:'dish' }">
                                 Image cap
+                            </router-link>
                             </text>
                         </svg>
                     </div>
-                </a>
                 <a href="">
                     <div class="card">
                         <div class="card">
