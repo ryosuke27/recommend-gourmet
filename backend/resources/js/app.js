@@ -1,6 +1,7 @@
 import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
 import HomeComponent from "./components/HomeComponent";
+import DishComponent from "./components/DishComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -34,6 +35,11 @@ const router = new VueRouter({
             path: '/home',
             name: 'home',
             component: HomeComponent
+        },
+        {
+            path: '/dish',
+            name: 'dish',
+            component: DishComponent
         },
     ]
 });
