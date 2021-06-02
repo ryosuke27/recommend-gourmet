@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
 import FavoriteComponent from "./components/FavoriteComponent";
+import MapComponent from "./components/MapComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -46,6 +47,11 @@ const router = new VueRouter({
             path: '/favorite',
             name: 'favorite',
             component: FavoriteComponent
+        },
+        {
+            path: '/map',
+            name: 'map',
+            component: MapComponent
         },
     ]
 });
