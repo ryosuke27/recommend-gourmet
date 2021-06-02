@@ -15,7 +15,7 @@ class CreateMstAreasTable extends Migration
     {
         Schema::create('mst_areas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 

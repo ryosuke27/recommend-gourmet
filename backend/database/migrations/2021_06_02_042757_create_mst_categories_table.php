@@ -15,7 +15,7 @@ class CreateMstCategoriesTable extends Migration
     {
         Schema::create('mst_categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
