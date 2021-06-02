@@ -15,6 +15,8 @@ class CreateDishStoresTable extends Migration
     {
         Schema::create('dish_stores', function (Blueprint $table) {
             $table->id();
+            $table->integer('dish_id');
+            $table->integer('store_id');
             $table->timestamps();
         });
     }
