@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserFavorite;
 
 class FavoriteController extends Controller
 {
@@ -21,8 +22,13 @@ class FavoriteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show()
+    public function show($id)
     {
-        return view('favorite');
+
+        $favorites = UserFavorite::find('user_id', $id);
+
+        return view('favorite', [
+            "favorites" => $favorites,
+        ]);
     }
 }
