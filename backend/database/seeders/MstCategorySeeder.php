@@ -41,7 +41,7 @@ class MstCategorySeeder extends Seeder
             ],
             [
                 'id' => 7,
-                'name' => "イタリアn",
+                'name' => "イタリア",
             ],
             [
                 'id' => 8,
