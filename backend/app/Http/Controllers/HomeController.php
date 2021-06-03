@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Dish;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        $embed_html = '<iframe src="'.url('/image/test1.jpg/?embed').'" style="width:100%;height:100%; border:none;"></iframe>';
+        $dishes = Dish::all();
 
+        // 都道府県の取得
         $url = "http://geoapi.heartrails.com/api/json?method=getPrefectures";
         $json = file_get_contents($url);
         $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
@@ -34,7 +36,8 @@ class HomeController extends Controller
         $pref = $arr['response'];
 
         return view('index', [
-            "embed_html" => $embed_html
+            "pref" => $pref,
+            "dish" => $dishes,
         ]);
     }
 }
