@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Dish;
 
 class DishController extends Controller
 {
@@ -21,13 +22,12 @@ class DishController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show()
+    public function show($id)
     {
-
-        $embed_html = '<iframe src="' . url('/image/test1.jpg/?embed') . '" style="width:100%;height:100%; border:none;"></iframe>';
+        $dishDetail = Dish::where("id", $id)->get();
 
         return view('dish', [
-            "embed_html" => $embed_html
+            "dishDetail" => $dishDetail
         ]);
     }
 }
