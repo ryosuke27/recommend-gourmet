@@ -14,7 +14,7 @@ class DishController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -22,12 +22,10 @@ class DishController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show($id)
+    public function show()
     {
-        $dishDetail = Dish::where("id", $id)->get();
+        $dishDetail = Dish::where('id', 1)->get();
 
-        return view('dish', [
-            "dishDetail" => $dishDetail
-        ]);
+        return $dishDetail;
     }
 }
