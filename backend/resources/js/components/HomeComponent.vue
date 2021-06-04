@@ -21,7 +21,7 @@
                             <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
                             <router-link
                                 v-bind:to="{
-                                    name: 'dish.show',
+                                    name: 'dish',
                                     params: { dishId: dish.id }
                                 }"
                             >
