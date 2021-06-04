@@ -3,78 +3,33 @@
         <div class="row justify-content-center">
             <h2>一瞬で美味しい店を見つけよう</h2>
             <div class="card-group">
-                    <div class="card">
-                        <svg
-                            class="bd-placeholder-img card-img-top"
-                            width="100%"
-                            height="200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice"
-                            focusable="false"
-                            role="img"
-                            aria-label="Placeholder: Image cap"
+                <div class="card">
+                  <div v-for="(dish, index) in dishes" :key="index">
+                    <svg
+                        class="bd-placeholder-img card-img-top"
+                        width="100%"
+                        height="200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        preserveAspectRatio="xMidYMid slice"
+                        focusable="false"
+                        role="img"
+                        aria-label="Placeholder: Image cap"
+                    >
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%" />
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
+                        <router-link
+                            v-bind:to="{
+                                name: 'dish.show',
+                                params: { dishId: dish.id }
+                            }"
                         >
-                            <title>Placeholder</title>
-                            <rect fill="#868e96" width="100%" height="100%" />
-                            <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-                            <router-link v-bind:to="{ name:'dish' }">
-                                Image cap
-                            </router-link>
-                            </text>
-                        </svg>
-                    </div>
-                <a href="">
-                    <div class="card">
-                        <div class="card">
-                            <svg
-                                class="bd-placeholder-img card-img-top"
-                                width="100%"
-                                height="200"
-                                xmlns="http://www.w3.org/2000/svg"
-                                preserveAspectRatio="xMidYMid slice"
-                                focusable="false"
-                                role="img"
-                                aria-label="Placeholder: Image cap"
-                            >
-                                <title>Placeholder</title>
-                                <rect
-                                    fill="#868e96"
-                                    width="100%"
-                                    height="100%"
-                                />
-                                <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-                                    Image cap
-                                </text>
-                            </svg>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="card">
-                        <div class="card">
-                            <svg
-                                class="bd-placeholder-img card-img-top"
-                                width="100%"
-                                height="200"
-                                xmlns="http://www.w3.org/2000/svg"
-                                preserveAspectRatio="xMidYMid slice"
-                                focusable="false"
-                                role="img"
-                                aria-label="Placeholder: Image cap"
-                            >
-                                <title>Placeholder</title>
-                                <rect
-                                    fill="#868e96"
-                                    width="100%"
-                                    height="100%"
-                                />
-                                <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-                                    Image cap
-                                </text>
-                            </svg>
-                        </div>
-                    </div>
-                </a>
+                        {{ dish.name }}
+                        </router-link>
+                        </text>
+                    </svg>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="container mt-5 px-5 py-5 border">
@@ -118,5 +73,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data: function() {
+        return {
+            dishes: []
+        };
+    },
+    methods: {
+        getDishes() {
+            axios.get("/api/home").then(res => {
+                this.dishes = res.data;
+            });
+        }
+    },
+    mounted() {
+        this.getDishes();
+    }
+};
 </script>

@@ -35,9 +35,6 @@ class HomeController extends Controller
         
         $pref = $arr['response'];
 
-        return view('index', [
-            "pref" => $pref,
-            "dish" => $dishes,
-        ]);
+        return $dishes;
     }
 }

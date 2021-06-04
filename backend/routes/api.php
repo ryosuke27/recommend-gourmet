@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/dish/{dish_id}', [App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
+Route::get('/favorite', [App\Http\Controllers\FavoriteController::class, 'show'])->name('favorite.show');
+Route::get('/map', [App\Http\Controllers\MapController::class, 'show'])->name('map.show');
+
