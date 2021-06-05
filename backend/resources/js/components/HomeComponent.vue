@@ -6,29 +6,14 @@
                 <div class="card">
                  <div class="row">
                     <div v-for="(dish, index) in dishes" :key="index">
-                        <svg
-                            class="bd-placeholder-img card-img-top"
-                            width="100%"
-                            height="200"
-                            xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice"
-                            focusable="false"
-                            role="img"
-                            aria-label="Placeholder: Image cap"
+                        <router-link
+                            v-bind:to="{
+                                name: 'dish',
+                                params: { dishId: dish.id }
+                            }"
                         >
-                            <title>Placeholder</title>
-                            <rect fill="#868e96" width="100%" height="100%" />
-                            <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-                            <router-link
-                                v-bind:to="{
-                                    name: 'dish',
-                                    params: { dishId: dish.id }
-                                }"
-                            >
-                            {{ dish.name }}
-                            </router-link>
-                            </text>
-                        </svg>
+                        <img src="image/test1.jpg" style="width: 200px; height: 200px">
+                        </router-link>
                     </div>
                  </div>
                 </div>
@@ -50,7 +35,7 @@
                     <input
                         type="category"
                         class="form-control"
-                        id="Category"
+                        id="category"
                         placeholder="category"
                     />
                 </div>
