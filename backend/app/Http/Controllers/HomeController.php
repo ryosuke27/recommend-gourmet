@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $dishes = Dish::all();
+        $dishes = Dish::inRandomOrder()->take(3)->get();;
 
         // 都道府県の取得
         $url = "http://geoapi.heartrails.com/api/json?method=getPrefectures";
