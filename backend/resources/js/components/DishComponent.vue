@@ -2,22 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="card mb-3">
-                    <svg
-                        class="bd-placeholder-img card-img-top"
-                        width="100%"
-                        height="500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        preserveAspectRatio="xMidYMid slice"
-                        focusable="false"
-                        role="img"
-                        aria-label="Placeholder: Image cap"
-                    >
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%" />
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-                            {{ dish[0].name }}
-                        </text>
-                    </svg>
+                    <img :src="dish[0].image_path" style="width: 200px; height: 200px">
                     <div class="card-body">
                         <h5 class="card-title">{{ dish[0].name }}</h5>
                         <router-link v-bind:to="{ name: 'map' }">
