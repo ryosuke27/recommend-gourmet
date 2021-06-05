@@ -12,7 +12,7 @@
                                 params: { dishId: dish.id }
                             }"
                         >
-                        <img src="image/test1.jpg" style="width: 200px; height: 200px">
+                        <img :src="dish.image_path" style="width: 200px; height: 200px">
                         </router-link>
                     </div>
                  </div>

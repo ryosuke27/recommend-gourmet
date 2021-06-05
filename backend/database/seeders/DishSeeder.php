@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DishSeeder extends Seeder
 {
@@ -16,9 +17,10 @@ class DishSeeder extends Seeder
     {
         DB::table('dishes')->insert(
             [
-                'name' => "ラーメン",
-                'description' => "ラーメンの説明",
+                'name' => Str::random(10),
+                'description' => Str::random(30),
                 'map_id' => 1,
+                'image_path' => Str::random(20),
             ],
         );
     }
