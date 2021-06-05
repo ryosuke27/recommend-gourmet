@@ -22,9 +22,9 @@ class DishController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function show()
+    public function show(Request $request)
     {
-        $dishDetail = Dish::where('id', 1)->get();
+        $dishDetail = Dish::where('id', $request->dish_id)->get();
 
         return $dishDetail;
     }
