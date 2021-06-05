@@ -39,9 +39,10 @@ const router = new VueRouter({
             component: HomeComponent
         },
         {
-            path: '/dish',
+            path: '/dish/:dishId',
             name: 'dish',
-            component: DishComponent
+            component: DishComponent,
+            props: true
         },
         {
             path: '/favorite',

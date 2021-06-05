@@ -16,6 +16,7 @@
                         <rect fill="#868e96" width="100%" height="100%" />
                         <text fill="#dee2e6" dy=".3em" x="50%" y="50%">
                             {{ dish[0].name }}
+                            {{ $route.params.dishId }}
                         </text>
                     </svg>
                     <div class="card-body">
@@ -36,6 +37,9 @@
 
 <script>
 export default {
+    props: {
+            dishId: String
+    },
     data: function() {
         return {
             dish: []
