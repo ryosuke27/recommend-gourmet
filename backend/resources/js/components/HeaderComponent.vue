@@ -6,13 +6,19 @@
                     <span class="navbar-brand mb-0 h1">RecommendGourmet</span>
                 </router-link>
                 <div>
-                    <router-link v-bind:to="{ name: 'favorite' }">
-                        <button class="btn btn-success">Favorite</button>
-                    </router-link>
-                    <button class="btn btn-success">Mypage</button>
-                    <RouterLink class="btn btn-success" to="/login">
-                        Login / Register
-                    </RouterLink>
+                    <div v-if="isLogin" class="navbar__item">
+                        <router-link v-bind:to="{ name: 'favorite' }">
+                            <button class="btn btn-success">Favorite</button>
+                        </router-link>
+                    </div>
+                    <span v-if="isLogin" class="">
+                        {{ username }}
+                    </span>
+                    <div v-else class="navbar__item">
+                        <RouterLink class="btn btn-success" to="/login">
+                            Login / Register
+                        </RouterLink>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -20,5 +26,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+    computed: {
+        isLogin() {
+            return this.$store.getters["auth/check"];
+        },
+        username() {
+            return this.$store.getters["auth/username"];
+        }
+    }
+};
 </script>
