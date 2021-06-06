@@ -1,6 +1,6 @@
 import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
-import store from './store' 
+import store from './store'
 import './bootstrap'
 import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
@@ -71,9 +71,14 @@ const router = new VueRouter({
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+const createApp = async () => {
+    await store.dispatch('auth/currentUser')
 
-const app = new Vue({
-    el: '#app',
-    router,
-    store
-});
+    new Vue({
+        el: '#app',
+        router,
+        store
+    })
+};
+
+createApp()
