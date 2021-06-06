@@ -103,7 +103,7 @@ export default {
             await this.$store.dispatch("auth/register", this.registerForm);
 
             // トップページに移動する
-            this.$router.push("/");
+            this.$router.push("/home");
         }
     }
 };
