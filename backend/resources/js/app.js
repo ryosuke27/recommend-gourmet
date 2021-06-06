@@ -1,5 +1,6 @@
 import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
+import store from './store' 
 import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
 import FavoriteComponent from "./components/FavoriteComponent";
@@ -72,5 +73,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });
