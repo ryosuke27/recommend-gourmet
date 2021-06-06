@@ -1,6 +1,7 @@
 import HeaderComponent from "./components/HeaderComponent";
 import VueRouter from 'vue-router';
 import store from './store' 
+import './bootstrap'
 import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
 import FavoriteComponent from "./components/FavoriteComponent";
