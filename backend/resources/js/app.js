@@ -4,6 +4,7 @@ import HomeComponent from "./components/HomeComponent";
 import DishComponent from "./components/DishComponent";
 import FavoriteComponent from "./components/FavoriteComponent";
 import MapComponent from "./components/MapComponent";
+import FooterComponent from "./components/FooterComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -26,6 +27,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().Fsplit('.')[0], files(key).default))
 
 Vue.component('header-component', HeaderComponent);
+Vue.component('footer-component', FooterComponent);
 
 
 Vue.use(VueRouter);
