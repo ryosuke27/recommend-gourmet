@@ -10,6 +10,9 @@
                         <button class="btn btn-success">Favorite</button>
                     </router-link>
                     <button class="btn btn-success">Mypage</button>
+                    <RouterLink class="btn btn-success" to="/login">
+                        Login / Register
+                    </RouterLink>
                 </div>
             </nav>
         </div>
