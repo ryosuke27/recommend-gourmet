@@ -10,6 +10,11 @@
                                 Go
                             </button>
                         </router-link>
+                        <router-link v-bind:to="{ name: 'favorite.add' }">
+                            <button type="button" class="btn btn-warning" v-on:click="addFavorite(dish[0].id)">
+                                Favorite
+                            </button>
+                        </router-link>
                         <p class="card-text">
                             {{ dish[0].description }}
                         </p>
@@ -33,6 +38,11 @@ export default {
         getDish() {
             axios.get('/api/dish/' + this.dishId).then(res => {
                 this.dish = res.data;
+            });
+        },
+        addFavorite(id) {
+            axios.get('/api/dish/' + id).then(res => {
+                this.$router.push({name: 'dish'})
             });
         }
     },

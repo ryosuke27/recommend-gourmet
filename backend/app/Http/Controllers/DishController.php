@@ -28,4 +28,11 @@ class DishController extends Controller
 
         return $dishDetail;
     }
+
+    public function add(Request $request)
+    {
+        $dishDetail = Dish::where('id', $request->dish_id)->get();
+
+        return $dishDetail;
+    }
 }
