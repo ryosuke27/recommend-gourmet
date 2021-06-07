@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card-deck">
             <div class="card">
-                <div class="row">
+                <div class="row row-cols-3 row-cols-md-2 g-4">
                     <div v-for="(dish, index) in dishes" :key="index">
                         <router-link
                             v-bind:to="{
