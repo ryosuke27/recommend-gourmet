@@ -11,9 +11,6 @@
                             <button class="btn btn-success">Favorite</button>
                         </router-link>
                     </div>
-                    <span v-if="isLogin" class="">
-                        {{ username }}
-                    </span>
                     <div v-else class="navbar__item">
                         <RouterLink class="btn btn-success" to="/login">
                             Login
