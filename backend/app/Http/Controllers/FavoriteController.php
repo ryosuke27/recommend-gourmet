@@ -26,8 +26,18 @@ class FavoriteController extends Controller
     public function show()
     {
 
-        $dishes = UserFavorite::where('user_id', Auth::user()->id)->get();
+        $favorites = UserFavorite::where('user_id', Auth::user()->id)->get();
+        //TODO : 同じ料理の重複をなくす
+        $dishes = array();
 
+        foreach ($favorites as $key => $favorite)
+        {
+            $dishes[$key]['id'] = $favorite->dish->id;
+            $dishes[$key]['name'] = $favorite->dish->name;
+            $dishes[$key]['description'] = $favorite->dish->description;
+            $dishes[$key]['image_path'] = $favorite->dish->image_path;
+        }
+        
         return $dishes;
     }
 }

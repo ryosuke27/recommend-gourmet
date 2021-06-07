@@ -3,8 +3,8 @@
         <div class="card-deck">
             <div class="card">
                 <div class="row">
-                    <div v-for="(favorite, index) in favorites" :key="index">
-                       {{ favorite.id }}
+                    <div v-for="(dish, index) in dishes" :key="index">
+                       {{ dish.name }}
                     </div>
                 </div>
             </div>
@@ -16,18 +16,18 @@
 export default {
     data: function() {
         return {
-            favorites: []
+            dishes: []
         };
     },
     methods: {
-        getFavorites() {
+        getDishes() {
             axios.get("/api/favorite").then(res => {
-                this.favorites = res.data;
+                this.dishes = res.data;
             });
         }
     },
     mounted() {
-        this.getFavorites();
+        this.getDishes();
     }
 };
 </script>
