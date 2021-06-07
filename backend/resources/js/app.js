@@ -71,14 +71,9 @@ const router = new VueRouter({
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-const createApp = async () => {
-    await store.dispatch('auth/currentUser')
 
-    new Vue({
-        el: '#app',
-        router,
-        store
-    })
-};
-
-createApp()
+ const app = new Vue({
+    el: '#app',
+    router,
+    store
+});
