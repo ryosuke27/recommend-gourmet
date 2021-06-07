@@ -17,7 +17,7 @@
                         <button
                             type="button"
                             class="btn btn-warning"
-                            v-on:click="addFavorite(dish[0].id)"
+                            v-on:click="addFavorite()"
                         >
                             Favorite
                         </button>
@@ -48,8 +48,8 @@ export default {
                 this.dish = res.data;
             });
         },
-        addFavorite(id) {
-            axios.get("/api/dish/" + id).then(res => {
+        addFavorite() {
+            axios.post("/api/dish/" + this.dishId).then(res => {
                 this.$router.push({ name: "dish" });
             });
         }

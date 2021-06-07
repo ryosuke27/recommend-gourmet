@@ -60,6 +60,11 @@ const router = new VueRouter({
             component: FavoriteComponent
         },
         {
+            path: '/favorite/:dishId',
+            name: 'favorite.add',
+            component: DishComponent
+        },
+        {
             path: '/map',
             name: 'map',
             component: MapComponent
