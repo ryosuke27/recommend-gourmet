@@ -13,4 +13,14 @@ class UserFavorite extends Model
         'user_id',
         'dish_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function dish()
+    {
+        return $this->belongsTo(Dish::class);
+    }
 }

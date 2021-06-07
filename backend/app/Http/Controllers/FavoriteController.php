@@ -26,8 +26,8 @@ class FavoriteController extends Controller
     public function show()
     {
 
-        $favorites = UserFavorite::where('user_id', Auth::user()->id)->get();
+        $dishes = UserFavorite::where('user_id', Auth::user()->id)->get();
 
-        return $favorites;
+        return $dishes;
     }
 }

@@ -14,4 +14,12 @@ class Dish extends Model
         'description',
         'map_id',
     ];
+
+     /**
+     * UserFavoriteへのリレーション
+     */
+    public function userFavoites()
+    {
+        return $this->hasMany(UserFavorite::class, "dish_id");
+    }
 }
