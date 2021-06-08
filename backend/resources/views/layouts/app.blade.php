@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/df47616e2d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
