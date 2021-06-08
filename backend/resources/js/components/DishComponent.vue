@@ -13,15 +13,7 @@
                             Go
                         </button>
                     </router-link>
-                    <router-link v-bind:to="{ name: 'favorite.add' }">
-                        <button
-                            type="button"
-                            class="btn btn-warning"
-                            v-on:click="addFavorite()"
-                        >
-                            Favorite
-                        </button>
-                    </router-link>
+                    <FavoriteButtonComponent v-bind:dishId="dish[0].id" v-bind:data="data"></FavoriteButtonComponent>
                     <p class="card-text">
                         {{ dish[0].description }}
                     </p>
@@ -32,7 +24,12 @@
 </template>
 
 <script>
+import FavoriteButtonComponent from "./FavoriteButtonComponent.vue";
+
 export default {
+    components: {
+        FavoriteButtonComponent
+    },
     props: {
         dishId: String,
         image_path: String
