@@ -60,7 +60,7 @@ const router = new VueRouter({
             component: FavoriteComponent
         },
         {
-            path: '/favorite/:dishId',
+            path: '/favorite/:dishId/add',
             name: 'favorite.add',
             component: DishComponent
         },

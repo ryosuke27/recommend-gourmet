@@ -30,14 +30,28 @@ class FavoriteController extends Controller
         //TODO : 同じ料理の重複をなくす
         $dishes = array();
 
-        foreach ($favorites as $key => $favorite)
-        {
+        foreach ($favorites as $key => $favorite) {
             $dishes[$key]['id'] = $favorite->dish->id;
             $dishes[$key]['name'] = $favorite->dish->name;
             $dishes[$key]['description'] = $favorite->dish->description;
             $dishes[$key]['image_path'] = $favorite->dish->image_path;
         }
-        
+
         return $dishes;
+    }
+
+    /**
+     * add Favorite.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function add(Request $request)
+    {
+
+        $userFavorite = UserFavorite::where('dish_id', $request->id)->first();
+
+        if (!$userFavorite) {
+            abort(404);
+        }
     }
 }
