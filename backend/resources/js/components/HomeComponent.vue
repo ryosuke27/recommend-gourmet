@@ -2,10 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <h2>一瞬で美味しい店を見つけよう</h2>
-            <div class="card-group">
-                <div class="card">
+            <div class="d-flex flex-row mt-4">
                     <div class="row">
-                        <div v-for="(dish, index) in dishes" :key="index">
+                        <div v-for="(dish, index) in dishes" :key="index" class="mr-4">
                             <router-link
                                 v-bind:to="{
                                     name: 'dish',
@@ -19,7 +18,6 @@
                             </router-link>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         <div class="container mt-5 px-5 py-5 border">
