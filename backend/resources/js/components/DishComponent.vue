@@ -13,7 +13,7 @@
                             Go
                         </button>
                     </router-link>
-                    <FavoriteButtonComponent v-bind:dishId="dish[0].id" v-bind:data="data"></FavoriteButtonComponent>
+                    <FavoriteButtonComponent v-bind:dishId="dish[0].id"></FavoriteButtonComponent>
                     <p class="card-text">
                         {{ dish[0].description }}
                     </p>
