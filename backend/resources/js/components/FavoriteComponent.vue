@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <div class="card-deck">
-            <div class="card">
-                <div class="row row-cols-3 row-cols-md-2 g-4">
-                    <div v-for="(dish, index) in dishes" :key="index">
+        <div class="d-flex flex-row flex-wrap">
+                <div class="row">
+                    <div v-for="(dish, index) in dishes" :key="index" class="mr-4 mb-4">
                         <router-link
                             v-bind:to="{
                                 name: 'dish',
@@ -17,7 +16,6 @@
                         </router-link>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </template>
