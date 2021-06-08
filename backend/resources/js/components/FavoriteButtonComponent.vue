@@ -2,7 +2,7 @@
   <div>
     <i
       v-on:click="storeOrDelete"
-      :class="[isActiveTrue === true ? 'far fa-star ml-3' : 'fas fa-star ml-3']"
+      :class="'far fa-star ml-3'"
     ></i>
   </div>
 </template>
@@ -10,15 +10,7 @@
 <script>
 export default {
   props: ["dishId", "data"],
-  data() {
-    return {
-      isActiveTrue: this.data.includes(this.dishId) ? false : true
-    };
-  },
   methods: {
-    change() {
-      this.isActiveTrue = !this.isActiveTrue;
-    },
     storeDishId() {
       axios
         .post("favorite/" + this.dishId + "/add", {
