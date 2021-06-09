@@ -4,7 +4,7 @@
             <div class="card mb-3">
                 <img
                     :src="dish[0].image_path"
-                    style="width: 400px; height: 300px"
+                    style="width: 500px; height: 400px"
                 />
                 <div class="card-body">
                     <h5 class="card-title">{{ dish[0].name }}</h5>
