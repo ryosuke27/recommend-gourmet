@@ -1,52 +1,47 @@
 <template>
-  <div>
-    <i
-      v-on:click="storeOrDelete"
-      :class="'far fa-star ml-3'"
-    ></i>
-  </div>
+    <div>
+        <i v-on:click="onFavoriteClick" :class="'far fa-star ml-3'"></i>
+    </div>
 </template>
 
 <script>
 export default {
-  props: ["dishId", "data"],
-  methods: {
-    storeDishId() {
-      axios
-        .post("favorite/" + this.dishId + "/add", {
-          dishId: this.dishId
-        })
-        .then(response => {
-          console.log("success");
-        })
-        .catch(err => {
-          console.log("error");
-        });
+    props: ["dishId", "data"],
+    computed: {
+        isLogin() {
+            return this.$store.getters["auth/check"];
+        }
     },
-    deleteDishId() {
-      axios
-        .delete("favorite/" + this.dishId + "/delete", {
-          data: {
-            dishId: this.dishId
-          }
-        })
-        .then(response => {
-          console.log("success");
-        })
-        .catch(err => {
-          console.log("error");
-        });
-    },
-    storeOrDelete() {
-      const isTrue = this.likedData.includes(this.dishId);
-      if (isTrue === true) {
-        this.deleteDishId();
-        this.change();
-      } else {
-        this.storeDishId();
-        this.change();
-      }
+    methods: {
+        onFavoriteClick() {
+            // if (!this.isLogin) {
+            //     alert("いいね機能を使うにはログインしてください。");
+            //     return false;
+            // }
+            if (this.dish.liked_by_user) {
+                this.unfavorite();
+            } else {
+                this.favorite();
+            }
+        },
+        async favorite() {
+            const response = await axios.put(`/api/dish/${this.id}/add`);
+
+            if (response.status !== OK) {
+                this.$store.commit("error/setCode", response.status);
+                return false;
+                this.dish.liked_by_user = true;
+            }
+        },
+        async unfavorite() {
+            const response = await axios.delete(`/api/dish/${this.id}/delete`);
+
+            if (response.status !== OK) {
+                this.$store.commit("error/setCode", response.status);
+                return false;
+                this.dish.liked_by_user = false;
+            }
+        }
     }
-  }
 };
 </script>
