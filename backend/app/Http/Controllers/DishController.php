@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Dish;
 
@@ -31,8 +32,28 @@ class DishController extends Controller
 
     public function add(Request $request)
     {
-        $dishDetail = Dish::where('id', $request->dish_id)->get();
+        $dishDetail = Dish::where('id', $request->dish_id)->with('user_favorites')->first();
 
-        return $dishDetail;
+        if (!$dishDetail) {
+            abort(404);
+        }
+
+        $dishDetail->favorites()->detach(Auth::user()->id);
+        $dishDetail->favorites()->attach(Auth::user()->id);
+
+        return ["dish_id" => $request->id];
+    }
+
+    public function remove(Request $request)
+    {
+        $dishDetail = Dish::where('id', $request->dish_id)->with('user_favorites')->first();
+
+        if (!$dishDetail) {
+            abort(404);
+        }
+
+        $dishDetail->favorites()->detach(Auth::user()->id);
+
+        return ["dish_id" => $request->id];
     }
 }
