@@ -30,7 +30,7 @@ export default {
             }
         },
         async favorite() {
-            const response = await axios.put(`/api/dish/${this.id}/add`);
+            const response = await axios.put(`/api/favorite/${this.id}/add`);
 
             if (response.status !== OK) {
                 this.$store.commit("error/setCode", response.status);
@@ -39,7 +39,7 @@ export default {
             }
         },
         async unfavorite() {
-            const response = await axios.delete(`/api/dish/${this.id}/delete`);
+            const response = await axios.delete(`/api/favorite/${this.id}/delete`);
 
             if (response.status !== OK) {
                 this.$store.commit("error/setCode", response.status);

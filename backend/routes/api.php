@@ -27,6 +27,6 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dish/{dish_id?}', [App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
 Route::get('/favorite', [App\Http\Controllers\FavoriteController::class, 'show'])->name('favorite.show');
-Route::post('/favorite/{dish_id}/add', [App\Http\Controllers\FavoriteController::class, 'add'])->name('favorite.add');
+Route::put('/favorite/{dish_id}/add', [App\Http\Controllers\FavoriteController::class, 'add'])->name('favorite.add');
 Route::delete('/favorite/{dish_id}/delete', [App\Http\Controllers\FavoriteController::class, 'delete'])->name('favorite.remove');
 Route::get('/map', [App\Http\Controllers\MapController::class, 'show'])->name('map.show');
