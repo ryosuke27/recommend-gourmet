@@ -7,6 +7,11 @@
 <script>
 export default {
     props: ["dishId", "data"],
+    data: function() {
+        return {
+            dish: []
+        };
+    },
     computed: {
         isLogin() {
             return this.$store.getters["auth/check"];
