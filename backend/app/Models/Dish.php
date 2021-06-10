@@ -22,4 +22,9 @@ class Dish extends Model
     {
         return $this->hasMany(UserFavorite::class, "dish_id");
     }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'user_favorites')->withTimestamps();
+    }
 }
