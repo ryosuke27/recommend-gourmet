@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\UserFavorite;
+use App\Models\Dish;
 
 class FavoriteController extends Controller
 {
@@ -48,10 +48,15 @@ class FavoriteController extends Controller
     public function add(Request $request)
     {
 
-        $userFavorite = UserFavorite::where('dish_id', $request->id)->first();
+        $dish = Dish::where('id', $request->dish_id)->with('favorites')->first();
 
-        if (!$userFavorite) {
+        if (!$dish) {
             abort(404);
         }
+        
+        $dish->favorites()->detach(Auth::user()->id);
+        $dish->favorites()->attach(Auth::user()->id);
+    
+        return ["dish_id" => $request->dish_id];
     }
 }
