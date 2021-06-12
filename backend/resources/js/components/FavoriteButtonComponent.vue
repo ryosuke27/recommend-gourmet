@@ -23,6 +23,8 @@ export default {
             //     alert("いいね機能を使うにはログインしてください。");
             //     return false;
             // }
+
+            // liked_by_userで条件分岐させる
             if (this.dish.liked_by_user) {
                 this.unfavorite();
             } else {
