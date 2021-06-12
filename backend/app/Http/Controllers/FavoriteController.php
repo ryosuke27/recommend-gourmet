@@ -53,10 +53,29 @@ class FavoriteController extends Controller
         if (!$dish) {
             abort(404);
         }
-        
+
         $dish->favorites()->detach(Auth::user()->id);
         $dish->favorites()->attach(Auth::user()->id);
-    
+
+        return ["dish_id" => $request->dish_id];
+    }
+
+    /**
+     * delete Favorite.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function delete(Request $request)
+    {
+
+        $dish = Dish::where('id', $request->dish_id)->with('favorites')->first();
+
+        if (!$dish) {
+            abort(404);
+        }
+
+        $dish->favorites()->detach(Auth::user()->id);
+
         return ["dish_id" => $request->dish_id];
     }
 }
