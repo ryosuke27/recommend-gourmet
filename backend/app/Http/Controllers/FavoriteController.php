@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Dish;
+use App\Models\UserFavorite;
 
 class FavoriteController extends Controller
 {
