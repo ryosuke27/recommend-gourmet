@@ -45,4 +45,11 @@ class HomeController extends Controller
 
         return $areas;
     }
+
+    public function search(Request $request)
+    {
+        $result = Dish::where("store_id", $request->store_id);
+
+        return $result;
+    }
 }

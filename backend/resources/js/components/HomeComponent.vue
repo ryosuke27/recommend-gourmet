@@ -117,7 +117,7 @@ export default {
         },
         async search() {
            await axios.post("/api/home/search", this.searchForm).then(res => {
-                this.categories = res.data;
+                this.results = res.data;
             });
         }
     },
