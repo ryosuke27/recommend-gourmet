@@ -14,7 +14,7 @@ class MstCategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mst_categories')->insert(
+        DB::table('mst_categories')->insert([
             [
                 'id' => 1,
                 'name' => "和食",
@@ -47,6 +47,6 @@ class MstCategorySeeder extends Seeder
                 'id' => 8,
                 'name' => "洋食・西洋料理",
             ],
-        );
+        ]);
     }
 }
