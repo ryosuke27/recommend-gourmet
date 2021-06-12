@@ -3,33 +3,42 @@
         <div class="row justify-content-center">
             <h2>一瞬で美味しい店を見つけよう</h2>
             <div class="d-flex flex-row mt-4">
-                    <div class="row">
-                        <div v-for="(dish, index) in dishes" :key="index" class="mr-4">
-                            <router-link
-                                v-bind:to="{
-                                    name: 'dish',
-                                    params: { dishId: dish.id }
-                                }"
-                            >
-                                <img
-                                    :src="dish.image_path"
-                                    style="width: 200px; height: 200px"
-                                />
-                            </router-link>
-                        </div>
+                <div class="row">
+                    <div
+                        v-for="(dish, index) in dishes"
+                        :key="index"
+                        class="mr-4"
+                    >
+                        <router-link
+                            v-bind:to="{
+                                name: 'dish',
+                                params: { dishId: dish.id }
+                            }"
+                        >
+                            <img
+                                :src="dish.image_path"
+                                style="width: 200px; height: 200px"
+                            />
+                        </router-link>
                     </div>
+                </div>
             </div>
         </div>
         <div class="container mt-5 px-5 py-5 border">
             <div class="row">
                 <div class="col">
                     <label for="area" class="form-label">Area</label>
-                    <input
+                    <select
                         type="area"
                         class="form-control"
                         id="area"
                         placeholder="area"
-                    />
+                    >
+                        <option value="">--Please choose an Area--</option>
+                        <option v-for="area in areas" v-bind:value="area.id">{{
+                            area.name
+                        }}</option>
+                    </select>
                 </div>
                 <div class="col">
                     <label for="category" class="form-label">Category</label>
@@ -64,7 +73,8 @@
 export default {
     data: function() {
         return {
-            dishes: []
+            dishes: [],
+            areas: []
         };
     },
     methods: {
@@ -72,10 +82,16 @@ export default {
             axios.get("/api/home").then(res => {
                 this.dishes = res.data;
             });
+        },
+        getAreas() {
+            axios.get("/api/home/area").then(res => {
+                this.areas = res.data;
+            });
         }
     },
     mounted() {
         this.getDishes();
+        this.getAreas();
     }
 };
 </script>
