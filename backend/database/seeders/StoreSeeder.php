@@ -19,6 +19,8 @@ class StoreSeeder extends Seeder
                 'name' => "ラーメン屋",
                 'detail' => "ラーメン屋の説明",
                 'map_url' => "http://sample",
+                'mst_category_id' => 1,
+                'mst_area_id' => 1,
             ],
         );
     }

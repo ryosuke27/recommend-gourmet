@@ -18,6 +18,8 @@ class CreateStoresTable extends Migration
             $table->string('name');
             $table->string('detail');
             $table->string('map_url');
+            $table->integer('mst_category_id');
+            $table->integer('mst_area_id');
             $table->timestamps();
         });
     }
