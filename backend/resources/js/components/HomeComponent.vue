@@ -92,7 +92,11 @@ export default {
         return {
             dishes: [],
             areas: [],
-            categories: []
+            categories: [],
+            searchForm: {
+                area: "",
+                category: ""
+            }
         };
     },
     methods: {
@@ -108,6 +112,11 @@ export default {
         },
         getCategories() {
             axios.get("/api/home/category").then(res => {
+                this.categories = res.data;
+            });
+        },
+        async search() {
+           await axios.post("/api/home/search", this.searchForm).then(res => {
                 this.categories = res.data;
             });
         }
