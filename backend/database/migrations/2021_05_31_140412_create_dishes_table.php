@@ -19,6 +19,7 @@ class CreateDishesTable extends Migration
             $table->text('description');
             $table->string('image_path')->nullable();
             $table->integer('map_id');
+            $table->integer('store_id');
             $table->timestamps();
         });
     }
