@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\MstArea;
+use App\Models\MstCategory;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,13 @@ class HomeController extends Controller
     public function area()
     {
         $areas = MstArea::all();
+
+        return $areas;
+    }
+
+    public function category()
+    {
+        $areas = MstCategory::all();
 
         return $areas;
     }

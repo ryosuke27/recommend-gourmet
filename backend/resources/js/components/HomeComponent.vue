@@ -42,12 +42,17 @@
                 </div>
                 <div class="col">
                     <label for="category" class="form-label">Category</label>
-                    <input
+                    <select
                         type="category"
                         class="form-control"
                         id="category"
                         placeholder="category"
-                    />
+                    >
+                        <option value="">--Please choose an Category--</option>
+                        <option v-for="category in categories" v-bind:value="category.id">{{
+                            category.name
+                        }}</option>
+                    </select>
                 </div>
                 <div class="col">
                     <label for="hashtag" class="form-label">HashTag</label>
@@ -74,7 +79,8 @@ export default {
     data: function() {
         return {
             dishes: [],
-            areas: []
+            areas: [],
+            categories: []
         };
     },
     methods: {
@@ -87,11 +93,17 @@ export default {
             axios.get("/api/home/area").then(res => {
                 this.areas = res.data;
             });
+        },
+        getCategories() {
+            axios.get("/api/home/category").then(res => {
+                this.categories = res.data;
+            });
         }
     },
     mounted() {
         this.getDishes();
         this.getAreas();
+        this.getCategories();
     }
 };
 </script>
