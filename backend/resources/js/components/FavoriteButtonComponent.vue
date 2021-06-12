@@ -30,7 +30,7 @@ export default {
             }
         },
         async favorite() {
-            const response = await axios.put(`/api/favorite/${this.id}/add`);
+            const response = await axios.put(`/api/favorite/${this.dishId}/add`);
 
             if (response.status !== OK) {
                 this.$store.commit("error/setCode", response.status);
