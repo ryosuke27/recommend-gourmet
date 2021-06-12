@@ -39,7 +39,7 @@ export default {
             }
         },
         async unfavorite() {
-            const response = await axios.delete(`/api/favorite/${this.id}/delete`);
+            const response = await axios.delete(`/api/favorite/${this.dishId}/delete`);
 
             if (response.status !== OK) {
                 this.$store.commit("error/setCode", response.status);
