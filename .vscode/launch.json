@@ -8,9 +8,9 @@
 			"name": "PHPDebug",
 			"type": "php",
 			"request": "launch",
-			"port": 9003,
+			"port": 9001,
 			"pathMappings": {
-			  "/var/www/html": "${workspaceRoot}/backend"
+			      "${workspaceRoot}": "${workspaceRoot}"
 			},
 			"ignore": [
 			  "**/vendor/**/*.php"
