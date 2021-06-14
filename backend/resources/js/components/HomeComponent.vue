@@ -93,6 +93,7 @@ export default {
             dishes: [],
             areas: [],
             categories: [],
+            results: []
         };
     },
     methods: {
@@ -111,11 +112,15 @@ export default {
                 this.categories = res.data;
             });
         },
-        async search() {
-           const respose = await axios.post("/api/home/search", {
-               areas: this.areas,
-               categories: this.categories,
-           })
+        search() {
+            axios
+                .get("/api/home/search?areas=" + this.areas + "&categories=" + this.categories)
+                .then(res => {
+                    this.posts = res.data;
+                })
+                .catch(error => {
+                    console.log("データの取得に失敗しました。");
+                });
         }
     },
     mounted() {
