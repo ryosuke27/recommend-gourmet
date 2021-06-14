@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
 
         $dishes = Dish::inRandomOrder()->take(3)->get();;
-
+// phpinfo();
         return $dishes;
     }
 
@@ -48,6 +48,7 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
+        dd($request->all());
         $result = Dish::where("store_id", $request->store_id);
 
         return $result;

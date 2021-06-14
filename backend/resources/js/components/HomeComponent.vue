@@ -30,7 +30,7 @@
                     <div class="col">
                         <label for="area" class="form-label">Area</label>
                         <select
-                            type="area"
+                            name="areas"
                             class="form-control"
                             id="area"
                             placeholder="area"
@@ -48,7 +48,7 @@
                             >Category</label
                         >
                         <select
-                            type="category"
+                            name="categories"
                             class="form-control"
                             id="category"
                             placeholder="category"
@@ -112,9 +112,10 @@ export default {
             });
         },
         async search() {
-           await axios.post("/api/home/search", this.searchForm).then(res => {
-                this.results = res.data;
-            });
+           const respose = await axios.post("/api/home/search", {
+               areas: this.areas,
+               categories: this.categories,
+           })
         }
     },
     mounted() {
