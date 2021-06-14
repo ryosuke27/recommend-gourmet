@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="container mt-5 px-5 py-5 border">
-            <form @submit.prevent="search">
+            <form @submit="search">
                 <div class="row">
                     <div class="col">
                         <label for="area" class="form-label">Area</label>
@@ -93,10 +93,6 @@ export default {
             dishes: [],
             areas: [],
             categories: [],
-            searchForm: {
-                area: "",
-                category: ""
-            }
         };
     },
     methods: {
