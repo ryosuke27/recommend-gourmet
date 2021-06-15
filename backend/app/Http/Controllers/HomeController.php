@@ -24,11 +24,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        $dishes = Dish::inRandomOrder()->take(3)->get();;
-
+        if ($request->query('areas') || $request->query('categories')) {
+            $dishes = Dish::whereHas('store', function($query, $request) {
+                $areas = $request->query('areas');
+                $categories = $request->query('categories'); 
+                $query->where('mst_area_id', $areas)
+                      ->where('mst_category_id', $categories);
+            })->inRandomOrder()
+            ->take(3)
+            ->get();
+        }else{
+            $dishes = Dish::inRandomOrder()->take(3)->get();;
+        }
         return $dishes;
     }
 
@@ -44,12 +53,5 @@ class HomeController extends Controller
         $areas = MstCategory::all();
 
         return $areas;
-    }
-
-    public function search(Request $request)
-    {
-        $result = Dish::where("store_id", $request->store_id);
-
-        return $result;
     }
 }
