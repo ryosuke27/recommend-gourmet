@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="card mb-3">
                 <img
-                    :src="dish[0].image_path"
+                    :src="'/' + dish[0].image_path"
                     style="width: 500px; height: 400px"
                 />
                 <div class="card-body">
