@@ -8,12 +8,20 @@
                 />
                 <div class="card-body">
                     <h5 class="card-title">{{ dish[0].name }}</h5>
-                    <router-link v-bind:to="{ name: 'map' }">
-                        <button type="button" class="btn btn-success">
-                            Go
-                        </button>
-                    </router-link>
-                    <FavoriteButtonComponent v-bind:dishId="dish[0].id"></FavoriteButtonComponent>
+                    <div class="row">
+                        <div class="mx-auto">
+                            <router-link v-bind:to="{ name: 'map' }">
+                                <button type="button" class="btn btn-success">
+                                    Go
+                                </button>
+                            </router-link>
+                        </div>
+                        <div class="float-right col-2">
+                            <FavoriteButtonComponent
+                                v-bind:dishId="dish[0].id"
+                            ></FavoriteButtonComponent>
+                        </div>
+                    </div>
                     <p class="card-text">
                         {{ dish[0].description }}
                     </p>
