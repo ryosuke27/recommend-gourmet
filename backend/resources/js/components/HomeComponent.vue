@@ -114,7 +114,12 @@ export default {
         },
         search() {
             axios
-                .get("/api/home/search?areas=" + this.areas + "&categories=" + this.categories)
+                .get("/api/home/search", {
+                    params: {
+                        areas: this.areas,
+                        categories: this.categories,
+                    }
+                })
                 .then(res => {
                     this.posts = res.data;
                 })
