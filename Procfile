@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-nginx backend/resources
+web: vendor/bin/heroku-php-nginx backend/public/index.php
