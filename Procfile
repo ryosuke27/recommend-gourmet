@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-nginx backend/public/index.php
+web: vendor/bin/heroku-php-nginx backend/resources/views/layouts/app.blade.php
