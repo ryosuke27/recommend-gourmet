@@ -44,6 +44,8 @@ jobs:
         run: composer install -n --prefer-dist
       - name: composer dump autoload
         run: composer dump-autoload
+      - name: enter into container
+        run: docker exec -it php sh
       - name: generate key
         run: php artisan key:generate
       - name: migrate
