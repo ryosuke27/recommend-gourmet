@@ -2,11 +2,11 @@ name: Laravel
 
 on:
   push:
-    branches: [develop]
+    branches: [ develop ]
       - 'fix/**'
       - 'feature/**'
   pull_request:
-    branches: [develop]
+    branches: [ develop ]
       - 'fix/**'
       - 'feature/**'
 
