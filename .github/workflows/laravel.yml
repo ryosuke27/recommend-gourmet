@@ -3,12 +3,8 @@ name: Laravel
 on:
   push:
     branches: [ develop ]
-      - 'fix/**'
-      - 'feature/**'
   pull_request:
     branches: [ develop ]
-      - 'fix/**'
-      - 'feature/**'
 
 jobs:
   laravel_test:
