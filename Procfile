@@ -1,1 +1,0 @@
-web: vendor/bin/heroku-php-nginx backend/resources/views/layouts/app.blade.php
