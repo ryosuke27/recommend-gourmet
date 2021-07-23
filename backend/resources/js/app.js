@@ -77,8 +77,14 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- const app = new Vue({
+ const app = async () => {
+    await store.dispatch('auth/currentUser')
+
+    new Vue({
     el: '#app',
     router,
     store
-});
+    })
+};
+
+app();

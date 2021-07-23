@@ -6,8 +6,9 @@
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "build": "npm run production",
+        "production": "mix --production",
+        "heroku-postbuild": "npm run prod"
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -27,5 +28,8 @@
     },
     "dependencies": {
         "vue-router": "^3.5.1"
+    },
+    "engines": {
+        "node": "12.x"
     }
 }

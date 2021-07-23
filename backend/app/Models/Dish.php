@@ -19,7 +19,7 @@ class Dish extends Model
     /**
      * UserFavoriteへのリレーション
      */
-    public function userFavoites()
+    public function userFavorites()
     {
         return $this->hasMany(UserFavorite::class, "dish_id");
     }

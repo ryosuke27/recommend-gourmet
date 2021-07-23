@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h2>一瞬で美味しい店を見つけよう</h2>
+        <h1>一瞬で美味しい店を見つけよう</h1>
         <div class="card-group">
             <a href="{{ route('dish.show') }}">
                 <div class="card">

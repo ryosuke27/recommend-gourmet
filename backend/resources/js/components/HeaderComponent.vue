@@ -7,6 +7,7 @@
                 </router-link>
                 <div>
                     <div v-if="isLogin" class="navbar__item">
+                        <span class="text-light">{{ username }}</span>
                         <router-link v-bind:to="{ name: 'favorite' }">
                             <button class="btn btn-success">Favorite</button>
                         </router-link>

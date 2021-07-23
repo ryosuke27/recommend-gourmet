@@ -29,9 +29,7 @@ class HomeController extends Controller
         if ($request->query('areas') || $request->query('categories')) {
             $dishes = Dish::whereHas('store', function($query, $request) {
                 $areas = $request->query('areas');
-                $categories = $request->query('categories'); 
-                $query->where('mst_area_id', $areas)
-                      ->where('mst_category_id', $categories);
+                $query->where('mst_area_id', $areas);
             })->inRandomOrder()
             ->take(3)
             ->get();

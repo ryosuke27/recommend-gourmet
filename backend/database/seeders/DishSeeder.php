@@ -27,14 +27,14 @@ class DishSeeder extends Seeder
                 'name' => Str::random(10),
                 'description' => Str::random(30),
                 'map_id' => 1,
-                'store_id' => 1,
+                'store_id' => 2,
                 'image_path' => "image/test2.jpg",
             ],
             [
                 'name' => Str::random(10),
                 'description' => Str::random(30),
                 'map_id' => 1,
-                'store_id' => 1,
+                'store_id' => 3,
                 'image_path' => "image/test3.jpg",
             ],
         ]);
