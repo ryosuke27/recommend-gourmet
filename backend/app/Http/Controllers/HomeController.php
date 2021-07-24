@@ -52,4 +52,9 @@ class HomeController extends Controller
 
         return $areas;
     }
+
+    public function getData()
+    {
+        
+    }
 }
