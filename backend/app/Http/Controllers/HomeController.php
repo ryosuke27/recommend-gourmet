@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Dish;
 use App\Models\MstArea;
 use App\Models\MstCategory;
@@ -55,6 +56,14 @@ class HomeController extends Controller
 
     public function getData()
     {
+        $insta_media_id = config('env.INSTA_MEDIA_ID');
+        $insta_access_token = config('env.INSTA_ACCESS_TOKEN');
+        $response = Http::get('https://graph.facebook.com/v11.0/{$insta_media_id}/media?fields=id,media_type,media_url&access_token={$ista_access_token}');
+
+        // dd($response);
         
+        $data = $response->json();
+
+        return $data;
     }
 }

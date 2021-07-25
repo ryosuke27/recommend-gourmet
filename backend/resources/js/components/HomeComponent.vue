@@ -112,6 +112,11 @@ export default {
                 this.categories = res.data;
             });
         },
+        getData() {
+            axios.get("/api/home/getdata").then(res => {
+                this.results = res.data;
+            });
+        },
         search() {
             axios
                 .post("/api/home/search", {
@@ -132,6 +137,7 @@ export default {
         this.getDishes();
         this.getAreas();
         this.getCategories();
+        this.getData();
     }
 };
 </script>
