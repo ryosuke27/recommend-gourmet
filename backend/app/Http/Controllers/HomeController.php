@@ -58,9 +58,10 @@ class HomeController extends Controller
     {
         $insta_media_id = config('env.INSTA_MEDIA_ID');
         $insta_access_token = config('env.INSTA_ACCESS_TOKEN');
-        $response = Http::get('https://graph.facebook.com/v11.0/{$insta_media_id}/media?fields=id,media_type,media_url&access_token={$ista_access_token}');
+        $url = 'https://graph.facebook.com/v11.0/'.$insta_media_id.'/media?access_token='.$insta_access_token;
+        $response = Http::get($url);
 
-        $data = $response->json();
+        $data = $response;
 
         return $data;
     }
