@@ -8,6 +8,7 @@ import FavoriteComponent from "./components/FavoriteComponent";
 import MapComponent from "./components/MapComponent";
 import FooterComponent from "./components/FooterComponent";
 import LoginComponent from "./auth/LoginComponent";
+import SystemError from './errors/System.vue'
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -69,6 +70,10 @@ const router = new VueRouter({
             name: 'map',
             component: MapComponent
         },
+        {
+            path: '/500',
+            component: SystemError
+        }
     ]
 });
 /**
@@ -77,13 +82,13 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- const app = async () => {
+const app = async () => {
     await store.dispatch('auth/currentUser')
 
     new Vue({
-    el: '#app',
-    router,
-    store
+        el: '#app',
+        router,
+        store
     })
 };
 
