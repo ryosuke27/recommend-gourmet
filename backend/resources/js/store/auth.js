@@ -1,5 +1,8 @@
+import { OK } from '../util'
+
 const state = {
-    user: null
+    user: null,
+    apiStatus: null
 }
 
 const getters = {
@@ -10,6 +13,9 @@ const getters = {
 const mutations = {
     setUser(state, user) {
         state.user = user
+    },
+    setApiStatus(state, status) {
+        state.apiStatus = status
     }
 }
 
@@ -26,7 +32,7 @@ const actions = {
         const response = await axios.post('/api/logout')
         context.commit('setUser', null)
     },
-    async currentUser (context) {
+    async currentUser(context) {
         const response = await axios.get('/api/user')
         const user = response.data || null
         context.commit('setUser', user)
