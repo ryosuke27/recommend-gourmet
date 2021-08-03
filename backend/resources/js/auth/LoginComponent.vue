@@ -129,6 +129,11 @@ export default {
             // トップページに移動する
             this.$router.push("/home");
         }
+    },
+    computed: {
+        apiStatus () {
+          return this.$store.state.auth.apiStatus
     }
+},
 };
 </script>
