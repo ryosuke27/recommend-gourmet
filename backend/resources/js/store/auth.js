@@ -17,6 +17,9 @@ const mutations = {
     },
     setApiStatus(state, status) {
         state.apiStatus = status
+    },
+    setLoginErrorMessages(state, messages) {
+        state.loginErrorMessages = messages
     }
 }
 
@@ -37,7 +40,11 @@ const actions = {
         }
 
         context.commit('setApiStatus', false)
-        context.commit('error/setCode', response.status, { root: true })
+        if (response.status === UNPROCESSABLE_ENTITY) {
+            context.commit('setLoginErrorMessages', response.data.errors)
+        } else {
+            context.commit('error/setCode', response.status, { root: true })
+        }
     },
     async logout(context) {
         const response = await axios.post('/api/logout')
