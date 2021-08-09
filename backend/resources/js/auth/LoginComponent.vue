@@ -3,6 +3,14 @@
     <div class="card border-primary mb-3" v-show="tab === 1">
       <div class="card-header">Login</div>
       <form class="form card-body" @submit.prevent="login">
+        <div v-if="loginErrors" class="errors">
+          <ul v-if="loginErrors.email">
+            <li v-for="msg in loginErrors.email" :key="msg">{{ msg }}</li>
+          </ul>
+          <ul v-if="loginErrors.password">
+            <li v-for="msg in loginErrors.password" :key="msg">{{ msg }}</li>
+          </ul>
+        </div>
         <div class="mb-3">
           <label for="login-email">Email</label>
           <input
