@@ -33,11 +33,11 @@ const actions = {
         const response = await axios.post('/api/login', data)
             .catch(err => err.response || err)
 
-        if (response.status === OK) {
-            context.commit('setApiStatus', true)
-            context.commit('setUser', response.data)
-            return false
-        }
+        // if (response.status === OK) {
+        //     context.commit('setApiStatus', true)
+        //     context.commit('setUser', response.data)
+        //     return false
+        // }
 
         context.commit('setApiStatus', false)
         if (response.status === UNPROCESSABLE_ENTITY) {

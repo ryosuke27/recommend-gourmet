@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -139,12 +140,10 @@ export default {
     },
   },
   computed: {
-    apiStatus() {
-      return this.$store.state.auth.apiStatus;
-    },
-    loginErrors() {
-      return this.$store.state.auth.loginErrorMessages;
-    },
+    ...mapState({
+      apiStatus: (state) => state.auth.apiStatus,
+      loginErrors: (state) => state.auth.loginErrorMessages,
+    }),
   },
 };
 </script>
