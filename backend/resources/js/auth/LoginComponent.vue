@@ -4,11 +4,11 @@
       <div class="card-header">Login</div>
       <form class="form card-body" @submit.prevent="login">
         <div v-if="loginErrors" class="errors">
-          <ul v-if="loginErrors.email">
-            <li v-for="msg in loginErrors.email" :key="msg">{{ msg }}</li>
+          <ul class="list-unstyled border border-danger" v-if="loginErrors.email">
+            <li class="text-danger" v-for="msg in loginErrors.email" :key="msg">{{ msg }}</li>
           </ul>
-          <ul v-if="loginErrors.password">
-            <li v-for="msg in loginErrors.password" :key="msg">{{ msg }}</li>
+          <ul class="list-unstyled border border-danger" v-if="loginErrors.password">
+            <li class="text-danger" v-for="msg in loginErrors.password" :key="msg">{{ msg }}</li>
           </ul>
         </div>
         <div class="mb-3">
