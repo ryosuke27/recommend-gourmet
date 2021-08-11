@@ -4,11 +4,25 @@
       <div class="card-header">Login</div>
       <form class="form card-body" @submit.prevent="login">
         <div v-if="loginErrors" class="errors">
-          <ul class="list-unstyled border border-danger" v-if="loginErrors.email">
-            <li class="text-danger" v-for="msg in loginErrors.email" :key="msg">{{ msg }}</li>
+          <ul
+            class="list-unstyled border border-danger"
+            v-if="loginErrors.email"
+          >
+            <li class="text-danger" v-for="msg in loginErrors.email" :key="msg">
+              {{ msg }}
+            </li>
           </ul>
-          <ul class="list-unstyled border border-danger" v-if="loginErrors.password">
-            <li class="text-danger" v-for="msg in loginErrors.password" :key="msg">{{ msg }}</li>
+          <ul
+            class="list-unstyled border border-danger"
+            v-if="loginErrors.password"
+          >
+            <li
+              class="text-danger"
+              v-for="msg in loginErrors.password"
+              :key="msg"
+            >
+              {{ msg }}
+            </li>
           </ul>
         </div>
         <div class="mb-3">
@@ -138,6 +152,12 @@ export default {
       // トップページに移動する
       this.$router.push("/home");
     },
+    clearError() {
+      this.$store.commit("auth/setLoginErrorMessages", null);
+    },
+  },
+  created() {
+    this.clearError();
   },
   computed: {
     ...mapState({
