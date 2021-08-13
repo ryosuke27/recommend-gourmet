@@ -31,6 +31,7 @@ const actions = {
     async register(context, data) {
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/register', data)
+            .catch(err => err.response || err)
 
         // if (response.status === CREATED) {
         //     context.commit('setApiStatus', true)
