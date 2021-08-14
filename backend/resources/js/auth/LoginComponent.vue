@@ -63,14 +63,14 @@
       <div class="card-header">Register</div>
       <form class="form card-body" @submit.prevent="register">
         <div v-if="registerErrors" class="errors">
-          <ul v-if="registerErrors.name">
-            <li v-for="msg in registerErrors.name" :key="msg">{{ msg }}</li>
+          <ul class="list-unstyled border border-danger" v-if="registerErrors.name">
+            <li class="text-danger" v-for="msg in registerErrors.name" :key="msg">{{ msg }}</li>
           </ul>
-          <ul v-if="registerErrors.email">
-            <li v-for="msg in registerErrors.email" :key="msg">{{ msg }}</li>
+          <ul class="list-unstyled border border-danger" v-if="registerErrors.email">
+            <li class="text-danger" v-for="msg in registerErrors.email" :key="msg">{{ msg }}</li>
           </ul>
-          <ul v-if="registerErrors.password">
-            <li v-for="msg in registerErrors.password" :key="msg">{{ msg }}</li>
+          <ul class="list-unstyled border border-danger" v-if="registerErrors.password">
+            <li class="text-danger" v-for="msg in registerErrors.password" :key="msg">{{ msg }}</li>
           </ul>
         </div>
         <div class="mb-3">
