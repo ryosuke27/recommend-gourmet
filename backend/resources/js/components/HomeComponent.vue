@@ -119,10 +119,10 @@ export default {
         },
         search() {
             axios
-                .post("/api/home/search", {
+                .get("/api/home/search", {
                     params: {
-                        areas: this.areas,
-                        categories: this.categories,
+                        areas: this.$route.query.areas,
+                        categories: this.$route.query.categories,
                     }
                 })
                 .then(res => {
