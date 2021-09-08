@@ -74,18 +74,13 @@ class HomeController extends Controller
     {
         //TODO: リレーション先での検索　
         if ($request->query('areas') || $request->query('categories')) {
-           
+            
             $dishes = Dish::whereHas('store', function (Builder $query) {
                 $query->where('mst_area_id', 1);
             })->get();
+            
+            $dishes = json_encode($dishes, JSON_PRETTY_PRINT);
            
-           
-            // $dishes = Dish::whereHas('store', function (Builder $query) {
-                // $areas = $request->query('areas');
-                // $query->where('mst_area_id', 1);
-            // })->get();
-            // ->inRandomOrder()
-                // ->take(3)
         }
 
         clock()->info($request->query('areas'));
