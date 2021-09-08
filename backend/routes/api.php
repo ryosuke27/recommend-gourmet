@@ -30,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home/area', [App\Http\Controllers\HomeController::class, 'area'])->name('area');
 Route::get('/home/category', [App\Http\Controllers\HomeController::class, 'category'])->name('category');
 Route::get('/home/getdata', [App\Http\Controllers\HomeController::class, 'getData'])->name('getData');
-Route::get('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+Route::post('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 Route::get('/dish/{dish_id?}', [App\Http\Controllers\DishController::class, 'show'])->name('dish.show');
 Route::get('/favorite', [App\Http\Controllers\FavoriteController::class, 'show'])->name('favorite.show');

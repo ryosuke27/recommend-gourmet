@@ -119,7 +119,7 @@ export default {
         },
         search() {
             axios
-                .get("/api/home/search", {
+                .post("/api/home/search", {
                     params: {
                         areas: this.$route.query.areas,
                         categories: this.$route.query.categories,
