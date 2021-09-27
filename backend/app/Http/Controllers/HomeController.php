@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\Dish;
 use App\Models\MstArea;
 use App\Models\MstCategory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -37,10 +37,11 @@ class HomeController extends Controller
                 ->take(3)
                 ->get();
         } else {
-            $dishes = Dish::inRandomOrder()->take(3)->get();;
+            $dishes = Dish::inRandomOrder()->take(3)->get();
         }
 
         clock()->info($dishes);
+
         return $dishes;
     }
 
@@ -62,7 +63,7 @@ class HomeController extends Controller
     {
         $insta_media_id = config('env.INSTA_MEDIA_ID');
         $insta_access_token = config('env.INSTA_ACCESS_TOKEN');
-        $url = 'https://graph.facebook.com/v11.0/' . $insta_media_id . '/media?access_token=' . $insta_access_token;
+        $url = 'https://graph.facebook.com/v11.0/'.$insta_media_id.'/media?access_token='.$insta_access_token;
         $response = Http::get($url);
 
         $data = $response;
@@ -74,17 +75,16 @@ class HomeController extends Controller
     {
         //TODO: リレーション先での検索　
         if ($request->query('areas') || $request->query('categories')) {
-            
             $dishes = Dish::whereHas('store', function (Builder $query) {
                 $query->where('mst_area_id', 1);
             })->get();
-            
+
             $dishes = json_encode($dishes, JSON_PRETTY_PRINT);
-           
         }
 
         clock()->info($request->query('areas'));
         clock()->info($dishes);
+
         return $dishes;
     }
 }
