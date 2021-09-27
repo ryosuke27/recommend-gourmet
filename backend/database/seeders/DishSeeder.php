@@ -17,25 +17,25 @@ class DishSeeder extends Seeder
     {
         DB::table('dishes')->insert([
             [
-                'name' => Str::random(10),
+                'name'        => Str::random(10),
                 'description' => Str::random(30),
-                'map_id' => 1,
-                'store_id' => 1,
-                'image_path' => "image/test1.jpg",
+                'map_id'      => 1,
+                'store_id'    => 1,
+                'image_path'  => 'image/test1.jpg',
             ],
             [
-                'name' => Str::random(10),
+                'name'        => Str::random(10),
                 'description' => Str::random(30),
-                'map_id' => 1,
-                'store_id' => 2,
-                'image_path' => "image/test2.jpg",
+                'map_id'      => 1,
+                'store_id'    => 2,
+                'image_path'  => 'image/test2.jpg',
             ],
             [
-                'name' => Str::random(10),
+                'name'        => Str::random(10),
                 'description' => Str::random(30),
-                'map_id' => 1,
-                'store_id' => 3,
-                'image_path' => "image/test3.jpg",
+                'map_id'      => 1,
+                'store_id'    => 3,
+                'image_path'  => 'image/test3.jpg',
             ],
         ]);
     }

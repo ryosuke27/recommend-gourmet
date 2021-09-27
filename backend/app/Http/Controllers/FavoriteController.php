@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\UserFavorite;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
@@ -26,10 +26,9 @@ class FavoriteController extends Controller
      */
     public function show()
     {
-
         $favorites = UserFavorite::where('user_id', Auth::user()->id)->get();
         //TODO : 同じ料理の重複をなくす
-        $dishes = array();
+        $dishes = [];
 
         foreach ($favorites as $key => $favorite) {
             $dishes[$key]['id'] = $favorite->dish->id;
@@ -48,7 +47,6 @@ class FavoriteController extends Controller
      */
     public function add(Request $request)
     {
-
         $dish = Dish::where('id', $request->dish_id)->with('favorites')->first();
 
         if (!$dish) {
@@ -58,7 +56,7 @@ class FavoriteController extends Controller
         $dish->favorites()->detach(Auth::user()->id);
         $dish->favorites()->attach(Auth::user()->id);
 
-        return ["dish_id" => $request->dish_id];
+        return ['dish_id' => $request->dish_id];
     }
 
     /**
@@ -68,7 +66,6 @@ class FavoriteController extends Controller
      */
     public function delete(Request $request)
     {
-
         $dish = Dish::where('id', $request->dish_id)->with('favorites')->first();
 
         if (!$dish) {
@@ -77,6 +74,6 @@ class FavoriteController extends Controller
 
         $dish->favorites()->detach(Auth::user()->id);
 
-        return ["dish_id" => $request->dish_id];
+        return ['dish_id' => $request->dish_id];
     }
 }
