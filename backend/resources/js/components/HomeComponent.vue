@@ -126,7 +126,7 @@ export default {
                     }
                 })
                 .then(res => {
-                    this.posts = res.data;
+                    this.dishes = res.data;
                 })
                 .catch(error => {
                     console.log("データの取得に失敗しました。");
