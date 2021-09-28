@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Store;
 
 class Dish extends Model
 {
@@ -17,11 +16,11 @@ class Dish extends Model
     ];
 
     /**
-     * UserFavoriteへのリレーション
+     * UserFavoriteへのリレーション.
      */
     public function userFavorites()
     {
-        return $this->hasMany(UserFavorite::class, "dish_id");
+        return $this->hasMany(UserFavorite::class, 'dish_id');
     }
 
     public function favorites()
